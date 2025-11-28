@@ -78,15 +78,15 @@ try {
 
       /* Controls styles to match site buttons */
       .controls .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:10px; font-weight:700; box-shadow:0 8px 24px rgba(16,32,96,0.08); }
-      .controls .btn-primary { background: linear-gradient(90deg,var(--site-primary),var(--site-accent)); color:#fff; }
-      .controls .btn-success { background: linear-gradient(90deg,#16a34a,#15803d); color:#fff; }
-      .controls .btn-warning { background: linear-gradient(90deg,#f59e0b,#fbbf24); color:#fff; }
-      .controls .btn-danger { background: linear-gradient(90deg,#ef4444,#dc2626); color:#fff; }
+      .controls .btn-primary { background:  #fff; border:1px solid #3656beff; color:var(--site-accent);}
+      .controls .btn-success { background:  #fff; border:1px solid #3656beff; color:var(--site-accent);}
+      .controls .btn-warning { background:  #fff; border:1px solid #3656beff; color:var(--site-accent); }
+      .controls .btn-danger { background: #fff; border:1px solid #3656beff; color:var(--site-accent);}
 
       /* Action icon buttons inside table */
       .action-icon { display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:10px; text-decoration:none; cursor:pointer; }
       .edit-btn.action-icon { background:#fff; border:1px solid #eef2ff; color:var(--site-accent); box-shadow:0 6px 18px rgba(16,32,96,0.06); }
-      .delete-btn.action-icon { background: linear-gradient(90deg,#ff7aa6,#ec4899); color:#fff; }
+      .delete-btn.action-icon { background: #fff; border:1px solid #eef2ff; color:var(--site-accent); }
 
       /* small adjustments */
       .btn-ghost{ background:#fff; color:#374151; border:1px solid #eef2ff; padding:8px 10px; border-radius:10px; }

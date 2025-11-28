@@ -20,16 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $check->execute([':u' => $username, ':e' => $email]);
             
             if ($check->rowCount() > 0) {
-                $message = '✅ حساب الاختبار موجود بالفعل. استخدم: ' . $username . ' / ' . $password;
+                $message = '✅ : ' . $username . ' / ' . $password;
             } else {
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $ins = $db->prepare("INSERT INTO users (username, password, email, first_name, last_name, role, group_name) 
                                      VALUES (:u, :p, :e, 'Test', 'Student', 'student', 'G1')");
                 $ins->execute([':u' => $username, ':p' => $hash, ':e' => $email]);
-                $message = '✅ تم إنشاء حساب اختبار! استخدم: ' . $username . ' / ' . $password;
+                $message = '✅ : ' . $username . ' / ' . $password;
             }
         } catch (Exception $e) {
-            $error = '❌ خطأ: ' . $e->getMessage();
+            $error = '❌ : ' . $e->getMessage();
         }
     }
     
@@ -42,12 +42,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upd->execute([':p' => $hash]);
             
             if ($upd->rowCount() > 0) {
-                $message = '✅ تم تحديث كلمة مرور student2! استخدم: student2 / ' . $newPass;
+                $message = '✅  student2! : student2 / ' . $newPass;
             } else {
-                $error = '❌ لم يتم العثور على student2';
+                $error = '❌  student2';
             }
         } catch (Exception $e) {
-            $error = '❌ خطأ: ' . $e->getMessage();
+            $error = '❌ : ' . $e->getMessage();
         }
     }
     
@@ -60,12 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $upd->execute([':p' => $hash]);
             
             if ($upd->rowCount() > 0) {
-                $message = '✅ تم تحديث كلمة مرور سارة! استخدم: sara.ahmed أو البريد / ' . $newPass;
+                $message = '✅ : sara.ahmed  / ' . $newPass;
             } else {
-                $error = '❌ لم يتم العثور على سارة';
+                $error = '❌ ';
             }
         } catch (Exception $e) {
-            $error = '❌ خطأ: ' . $e->getMessage();
+            $error = '❌ : ' . $e->getMessage();
         }
     }
     
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             $message .= '</pre>';
         } catch (Exception $e) {
-            $error = '❌ خطأ: ' . $e->getMessage();
+            $error = '❌ : ' . $e->getMessage();
         }
     }
 }
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>أداة الدخول - نظام الحضور</title>
+    <title></title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family: Arial, sans-serif; background: linear-gradient(90deg, #5867ff, #9b5cff); min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px; }
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>🔓 أداة الدخول السريعة</h1>
+        <h1>🔓 </h1>
         
         <?php if ($message): ?>
             <div class="message success"><?= $message ?></div>
@@ -128,28 +128,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST">
             <div class="form-row">
                 <button type="submit" name="action" value="create_test_student" class="btn-primary">
-                    ✅ إنشاء حساب اختبار
+                         ✅ 
                 </button>
-                <div class="info">اسم: teststudent | كلمة المرور: test123</div>
+                <div class="info">name: teststudent | pass: test123</div>
             </div>
             
             <div class="form-row">
                 <button type="submit" name="action" value="reset_student2" class="btn-secondary">
-                    🔄 تحديث student2
+                    🔄  student2
                 </button>
-                <div class="info">الكلمة الجديدة: student2pass</div>
+                <div class="info">: student2pass</div>
             </div>
             
             <div class="form-row">
                 <button type="submit" name="action" value="reset_sara" class="btn-secondary">
-                    🔄 تحديث سارة أحمد
+                            🔄  
                 </button>
                 <div class="info">الكلمة الجديدة: sara123</div>
             </div>
             
             <div class="form-row">
                 <button type="submit" name="action" value="list_users" class="btn-secondary">
-                    📋 عرض جميع المستخدمين
+                     📋 
                 </button>
             </div>
         </form>
@@ -157,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <hr>
         
         <div style="text-align:center; font-size:12px; color:#666;">
-            بعد إنشاء الحساب، اذهب إلى:<br>
+             <br>
             <strong style="color:#3b5bff;">http://localhost/attendance_system/public/?page=login</strong>
         </div>
     </div>
